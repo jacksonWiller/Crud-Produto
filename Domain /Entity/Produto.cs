@@ -1,9 +1,18 @@
-namespace Domain_.Entity
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Domain.Interfaces;
+
+namespace Domain.Entity
 {
-    public class Produto
+    public class Produto : IProduto
     {
-        int id {get; set;}
-        string nome {get; set;}
-        int quantidade {get; set;} 
+        public int Id {get; set;}
+        public string Nome {get; set;}
+        public int Quantidade {get; set;}
+
+        public Task<List<Produto[]>> ListarProdutos()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

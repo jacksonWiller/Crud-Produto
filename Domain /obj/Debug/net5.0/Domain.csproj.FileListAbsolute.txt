@@ -1,0 +1,12 @@
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /bin/Debug/net5.0/Domain.deps.json
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /bin/Debug/net5.0/Domain.dll
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /bin/Debug/net5.0/ref/Domain.dll
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /bin/Debug/net5.0/Domain.pdb
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /obj/Debug/net5.0/Domain.csproj.AssemblyReference.cache
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /obj/Debug/net5.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /obj/Debug/net5.0/Domain.AssemblyInfoInputs.cache
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /obj/Debug/net5.0/Domain.AssemblyInfo.cs
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /obj/Debug/net5.0/Domain.csproj.CoreCompileInputs.cache
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /obj/Debug/net5.0/Domain.dll
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /obj/Debug/net5.0/ref/Domain.dll
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /obj/Debug/net5.0/Domain.pdb
