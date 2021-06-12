@@ -10,16 +10,17 @@ using Infrastructure.Repository.Interfaces;
 
 namespace Infrastructure.Repository.Repositories
 {
-    public class RepositoryProduto : RepositoryGeneric<Produto>, IRepositoryProduto
+    public class RepositoryProduto : RepositoryGeneric, IRepositoryProduto
     {
-        private readonly DataContext _context;
-        public RepositoryProduto(DataContext context)
+        public readonly DataContext _dataContext;
+
+        public RepositoryProduto(DataContext dataContext) : base(dataContext)
         {
-            _context = context;
+            _dataContext = dataContext;
         }
         public async Task<Produto[]> GetAllProdutosAsync()
         {
-            IQueryable<Produto> query = _context.Produtos;
+            IQueryable<Produto> query = _dataContext.Produtos;
                
             query = query.AsNoTracking().OrderBy(e => e.Id);
 
@@ -27,19 +28,21 @@ namespace Infrastructure.Repository.Repositories
         }
         public async Task<Produto[]> GetAllProdutosAsyncByNome(string nome)
         {
+            IQueryable<Produto> query = _dataContext.Produtos;
             
-            IQueryable<Produto> query = _context.Produtos;
-               
+             query = query.AsNoTracking().OrderBy(e => e.Id)
+                         .Where(e => e.Nome.ToLower().Contains(nome.ToLower()));
 
+            return await query.ToArrayAsync();
 
-            query = query.AsNoTracking().OrderBy(e => e.Id);
-
-            return await query.ToArrayAsync(); 
         }
 
          public async Task<Produto> GetProdutoAsyncById(int ProdutoId)
         {
-            IQueryable<Produto> query = _context.Produtos;
+            IQueryable<Produto> query = _dataContext.Produtos;
+
+            query = query.AsNoTracking().OrderBy(e => e.Id)
+                         .Where(e => e.Id == ProdutoId);
 
             return await query.FirstOrDefaultAsync();
         }

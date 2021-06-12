@@ -46,8 +46,8 @@ namespace Web.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Web.API", Version = "v1" });
             });
+            services.AddScoped<IRepositoryGeneric, RepositoryGeneric>();
             services.AddScoped<IRepositoryProduto, RepositoryProduto>();
-            // services.AddScoped<IRepositoryGeneric, RepositoryGeneric>();
             services.AddCors();
         }
 

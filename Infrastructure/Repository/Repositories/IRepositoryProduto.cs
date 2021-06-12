@@ -3,8 +3,9 @@ using Domain.Entity;
 
 namespace Infrastructure.Repository.Interfaces
 {
-    public interface IRepositoryProduto
+    public interface IRepositoryProduto : IRepositoryGeneric
     {
+        
         //PRODUTOS
         Task<Produto[]> GetAllProdutosAsync();
         Task<Produto[]> GetAllProdutosAsyncByNome( string nome);

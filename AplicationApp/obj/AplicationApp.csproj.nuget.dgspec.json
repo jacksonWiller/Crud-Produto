@@ -25,6 +25,75 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /Domain.csproj": {
+                "projectPath": "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /Domain.csproj"
+              },
+              "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Infrastructure/Infrastructure.csproj": {
+                "projectPath": "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Infrastructure/Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.300/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /Domain.csproj",
+        "packagesPath": "/home/jackson/.nuget/packages/",
+        "outputPath": "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jackson/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -37,6 +106,72 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.300/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Infrastructure/Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Infrastructure/Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Infrastructure/Infrastructure.csproj",
+        "packagesPath": "/home/jackson/.nuget/packages/",
+        "outputPath": "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jackson/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /Domain.csproj": {
+                "projectPath": "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
