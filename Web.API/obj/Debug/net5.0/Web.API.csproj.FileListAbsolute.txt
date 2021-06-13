@@ -87,3 +87,5 @@
 /home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Web.API/bin/Debug/net5.0/Microsoft.AspNetCore.JsonPatch.dll
 /home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Web.API/bin/Debug/net5.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Web.API/bin/Debug/net5.0/Newtonsoft.Json.Bson.dll
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Web.API/bin/Debug/net5.0/AplicationApp.dll
+/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Web.API/bin/Debug/net5.0/AplicationApp.pdb

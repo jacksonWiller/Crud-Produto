@@ -12,6 +12,6 @@ namespace AplicationApp.Interfaces
 
         Task<Produto[]> GetAllProdutosAsync();
         Task<Produto[]> GetAllProdutosAsyncByNome( string nome);
-        Task<Produto> GetProdutoAsyncById(int ProdutosId);
+        Task<Produto> GetProdutoAsyncById(int produtosId);
     }
 }

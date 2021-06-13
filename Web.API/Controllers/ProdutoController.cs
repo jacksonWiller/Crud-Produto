@@ -10,6 +10,7 @@ using Domain.Entity;
 using Infrastructure.Repository;
 using Infrastructure.Repository.Interfaces;
 using Infrastructure.Repository.Gererics;
+using AplicationApp.Interfaces;
 
 namespace Web.Api.Controllers
 {
@@ -17,37 +18,20 @@ namespace Web.Api.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        private readonly IRepositoryGeneric _repositoryGeneric;
-        private readonly IRepositoryProduto _repositoryProduto;
+        private readonly IProdutoService _produtoService;
         
-        public ProdutoController(IRepositoryGeneric repositoryGeneric, IRepositoryProduto repositoryProduto)
+        public ProdutoController(IProdutoService produtoService)
         {
-            _repositoryGeneric = repositoryGeneric;
-            _repositoryProduto = repositoryProduto;
+            _produtoService = produtoService;
         }
-        // [HttpPost]
-        // public async Task<IActionResult> Post(Produto model)
-        // {
-        //     try
-        //     {
-        //         // Produto produto;
-        //         var retorno = await _repositoryGeneric.Add<Produto>(model);
-               
-        //         return Ok(retorno);
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         return this.StatusCode(StatusCodes.Status500InternalServerError,
-        //             $"Erro ao tentar adicionar eventos. Erro: {ex.Message}");
-        //     }
-        // }
+        
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
             try
             {
-                var produtos = await _repositoryProduto.GetAllProdutosAsync();
+                var produtos = await _produtoService.GetAllProdutosAsync();
                 if (produtos == null) return NoContent();
                 return Ok(produtos);
             }
@@ -61,7 +45,7 @@ namespace Web.Api.Controllers
         {
             try
             {
-                var produto = await _repositoryProduto.GetAllProdutosAsyncByNome(nome);
+                var produto = await _produtoService.GetAllProdutosAsyncByNome(nome);
 
                 return Ok(produto);
             }
@@ -75,7 +59,7 @@ namespace Web.Api.Controllers
         {
             try
             {
-                var produto = await _repositoryProduto.GetProdutoAsyncById(ProdutosId);
+                var produto = await _produtoService.GetProdutoAsyncById(ProdutosId);
 
                 return Ok(produto);
             }
@@ -85,8 +69,57 @@ namespace Web.Api.Controllers
             }
         }
          
-        
+        [HttpPost]
+        public async Task<IActionResult> Post(Produto model)
+        {
+            try
+            {
+                // Produto produto;
+                var retorno = await _produtoService.AddProdutos(model);
+               
+                return Ok(retorno);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar adicionar eventos. Erro: {ex.Message}");
+            }
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, Produto model)
+        {
+            try
+            {
+                var evento = await _produtoService.UpdateProdutos(id, model);
+                if (evento == null) return NoContent();
 
+                return Ok(evento);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar atualizar eventos. Erro: {ex.Message}");
+            }
+        }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                var evento = await _produtoService.GetProdutoAsyncById(id);
+                if (evento == null) return NoContent();
+
+                return await _produtoService.DeleteProduto(id) 
+                       ? Ok(new { message = "Deletado" }) 
+                       : throw new Exception("Ocorreu um problem não específico ao tentar deletar Evento.");
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar deletar eventos. Erro: {ex.Message}");
+            }
+        }
+    
     }
 }

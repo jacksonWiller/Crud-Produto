@@ -17,6 +17,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ProAgil.Repository;
+using AplicationApp.Interfaces;
+using AplicationApp;
 
 namespace Web.API
 {
@@ -46,6 +48,7 @@ namespace Web.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Web.API", Version = "v1" });
             });
+            services.AddScoped<IProdutoService, ProdutoService>();
             services.AddScoped<IRepositoryGeneric, RepositoryGeneric>();
             services.AddScoped<IRepositoryProduto, RepositoryProduto>();
             services.AddCors();

@@ -1694,6 +1694,22 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "AplicationApp/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Domain": "1.0.0",
+          "Infrastructure": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.7",
+          "Microsoft.Extensions.DependencyInjection": "5.0.1"
+        },
+        "compile": {
+          "bin/placeholder/AplicationApp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AplicationApp.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -6049,6 +6065,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "AplicationApp/1.0.0": {
+      "type": "project",
+      "path": "../AplicationApp/AplicationApp.csproj",
+      "msbuildProject": "../AplicationApp/AplicationApp.csproj"
+    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain /Domain.csproj",
@@ -6062,6 +6083,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "AplicationApp >= 1.0.0",
       "Domain >= 1.0.0",
       "Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 5.0.7",
@@ -6097,6 +6119,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/AplicationApp/AplicationApp.csproj": {
+              "projectPath": "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/AplicationApp/AplicationApp.csproj"
+            },
             "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /Domain.csproj": {
               "projectPath": "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Domain /Domain.csproj"
             },
