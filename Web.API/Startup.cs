@@ -19,6 +19,7 @@ using Microsoft.OpenApi.Models;
 using ProAgil.Repository;
 using AplicationApp.Interfaces;
 using AplicationApp;
+using AutoMapper;
 
 namespace Web.API
 {
@@ -43,6 +44,7 @@ namespace Web.API
                     .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = 
                         Newtonsoft.Json.ReferenceLoopHandling.Ignore
                     );
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddSwaggerGen(c =>
             {
