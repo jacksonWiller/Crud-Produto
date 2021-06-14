@@ -11,6 +11,7 @@ using Infrastructure.Repository;
 using Infrastructure.Repository.Interfaces;
 using Infrastructure.Repository.Gererics;
 using AplicationApp.Interfaces;
+using AplicationApp.Dtos;
 
 namespace Web.Api.Controllers
 {
@@ -24,7 +25,6 @@ namespace Web.Api.Controllers
         {
             _produtoService = produtoService;
         }
-        
 
         [HttpGet]
         public async Task<IActionResult> Get()
@@ -37,7 +37,8 @@ namespace Web.Api.Controllers
             }
             catch (System.Exception ex)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco Dados Falhou {ex.Message}");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, 
+                $"Banco Dados Falhou {ex.Message}");
             }
         }
         [HttpGet("{nome}/nome")]
@@ -51,7 +52,8 @@ namespace Web.Api.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco Dados Falhou");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, 
+                "Banco Dados Falhou");
             }
         }
         [HttpGet("{ProdutosId}")]
@@ -65,17 +67,18 @@ namespace Web.Api.Controllers
             }
             catch (System.Exception)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco Dados Falhou");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, 
+                "Banco Dados Falhou");
             }
         }
          
         [HttpPost]
-        public async Task<IActionResult> Post(Produto model)
+        public async Task<IActionResult> Post(ProdutoDto model)
         {
             try
             {
                 // Produto produto;
-                var retorno = await _produtoService.AddProdutos(model);
+                var retorno = await _produtoService.AddProduto(model);
                
                 return Ok(retorno);
             }
@@ -86,11 +89,11 @@ namespace Web.Api.Controllers
             }
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, Produto model)
+        public async Task<IActionResult> Put(int id, ProdutoDto model)
         {
             try
             {
-                var evento = await _produtoService.UpdateProdutos(id, model);
+                var evento = await _produtoService.UpdateProduto(id, model);
                 if (evento == null) return NoContent();
 
                 return Ok(evento);

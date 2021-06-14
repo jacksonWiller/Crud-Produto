@@ -1,17 +1,16 @@
 using System.Threading.Tasks;
-using Domain.Entity;
+using AplicationApp.Dtos;
 
 namespace AplicationApp.Interfaces
 {
     public interface IProdutoService
     {
          
-        Task<Produto> AddProdutos(Produto model);
-        Task<Produto> UpdateProdutos(int eventoId, Produto model);
+        Task<ProdutoDto> AddProduto(ProdutoDto model);
+        Task<ProdutoDto> UpdateProduto(int produtoId, ProdutoDto model);
         Task<bool> DeleteProduto(int produtoId);
-
-        Task<Produto[]> GetAllProdutosAsync();
-        Task<Produto[]> GetAllProdutosAsyncByNome( string nome);
-        Task<Produto> GetProdutoAsyncById(int produtosId);
+        Task<ProdutoDto[]> GetAllProdutosAsync();
+        Task<ProdutoDto[]> GetAllProdutosAsyncByNome( string nome);
+        Task<ProdutoDto> GetProdutoAsyncById(int produtosId);
     }
 }

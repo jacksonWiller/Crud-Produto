@@ -1,6 +1,8 @@
 using System;
 using System.Threading.Tasks;
+using AplicationApp.Dtos;
 using AplicationApp.Interfaces;
+using AutoMapper;
 using Domain.Entity;
 using Infrastructure.Repository;
 using Infrastructure.Repository.Interfaces;
@@ -11,109 +13,114 @@ namespace AplicationApp
     {
         private readonly IRepositoryProduto _repositoryProduto;
         private readonly IRepositoryGeneric _repositoryGeneric;
-        public ProdutoService(IRepositoryGeneric repositoryGeneric, IRepositoryProduto repositoryProduto)
+        private readonly IMapper _mapper;
+        public ProdutoService(IRepositoryGeneric repositoryGeneric,
+                              IRepositoryProduto repositoryProduto,
+                              IMapper mapper)
         {
             _repositoryProduto = repositoryProduto;
             _repositoryGeneric = repositoryGeneric;
+            _mapper = mapper;
         }
-        public async Task<Produto> AddProdutos(Produto model)
-        {
-           try
-           {
-               _repositoryGeneric.Add<Produto>(model); 
-               if( await _repositoryGeneric.SaveChangesAsync()){
-                   return await _repositoryProduto.GetProdutoAsyncById(model.Id);
-               }
-               return null;
-           }
-           catch (Exception ex)
-           {
-               
-               throw new Exception(ex.Message) ;
-           }
-        }
-        public async Task<Produto> UpdateProdutos(int produtoId, Produto model)
+
+        public async Task<ProdutoDto> AddProduto(ProdutoDto model)
         {
             try
             {
-                var  produto = await _repositoryProduto.GetProdutoAsyncById(produtoId);
-                if (produto == null) return null; 
+                var evento = _mapper.Map<Produto>(model);
 
-                model.Id = produto.Id;
+                _repositoryGeneric.Add<Produto>(evento);
 
-                _repositoryGeneric.Update(model);
-                if(await _repositoryGeneric.SaveChangesAsync()){
-                    return await _repositoryProduto.GetProdutoAsyncById(model.Id);
+                if (await _repositoryGeneric.SaveChangesAsync())
+                {
+                    var eventoRetorno = await _repositoryProduto.GetProdutoAsyncById(evento.Id);
+
+                    return _mapper.Map<ProdutoDto>(eventoRetorno);
                 }
                 return null;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                
                 throw new Exception(ex.Message);
             }
         }
-        public async Task<bool> DeleteProduto(int produtoId)
+
+        public async Task<ProdutoDto> UpdateProduto(int produtoId, ProdutoDto model)
         {
             try
-            {
-                var  produto = await _repositoryProduto.GetProdutoAsyncById(produtoId);
-                if (produto == null) throw new Exception("Produto para delete não foi encontrado."); 
-                
-                _repositoryGeneric.Delete<Produto>(produto);
-                return await _repositoryProduto.SaveChangesAsync();
-                
+            {   
+                var produto = await _repositoryProduto.GetProdutoAsyncById(produtoId);
+                if (produto == null) return null;
+
+                model.Id = produto.Id;
+
+                _mapper.Map(model, produto);
+
+                _repositoryGeneric.Update<Produto>(produto);                
+
+                if (await _repositoryGeneric.SaveChangesAsync())
+                {
+                    var eventoRetorno = await _repositoryProduto.GetProdutoAsyncById(produto.Id);
+
+                    return _mapper.Map<ProdutoDto>(eventoRetorno);
+                }
+                return null;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                
                 throw new Exception(ex.Message);
             }
         }
-        public async Task<Produto[]> GetAllProdutosAsync()
+        public Task<bool> DeleteProduto(int produtoId)
+        {
+            throw new NotImplementedException();
+        }
+        public async Task<ProdutoDto[]> GetAllProdutosAsync()
         {
             try
             {
                 var produto = await _repositoryProduto.GetAllProdutosAsync();
                 if (produto == null) return null;
 
-                return produto;
-            } 
-            catch (System.Exception ex)
+                var resultado = _mapper.Map<ProdutoDto[]>(produto);
+
+                return resultado;
+            }
+            catch (Exception ex)
             {
-                
                 throw new Exception(ex.Message);
             }
         }
-
-        public async Task<Produto[]> GetAllProdutosAsyncByNome(string nome)
+        public async Task<ProdutoDto[]> GetAllProdutosAsyncByNome(string nome)
         {
             try
             {
                 var produto = await _repositoryProduto.GetAllProdutosAsyncByNome(nome);
                 if (produto == null) return null;
 
-                return produto;
-            } 
-            catch (System.Exception ex)
+                var resultado = _mapper.Map<ProdutoDto[]>(produto);
+
+                return resultado;
+            }
+            catch (Exception ex)
             {
-                
                 throw new Exception(ex.Message);
             }
         }
 
-        public async Task<Produto> GetProdutoAsyncById(int produtosId)
+        public async Task<ProdutoDto> GetProdutoAsyncById(int produtosId)
         {
             try
             {
                 var produto = await _repositoryProduto.GetProdutoAsyncById(produtosId);
                 if (produto == null) return null;
 
-                return produto;
-            } 
-            catch (System.Exception ex)
+                var resultado = _mapper.Map<ProdutoDto>(produto);
+
+                return resultado;
+            }
+            catch (Exception ex)
             {
-                
                 throw new Exception(ex.Message);
             }
         }
