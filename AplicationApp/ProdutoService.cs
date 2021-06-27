@@ -71,9 +71,20 @@ namespace AplicationApp
                 throw new Exception(ex.Message);
             }
         }
-        public Task<bool> DeleteProduto(int produtoId)
+        public async Task<bool> DeleteProduto(int produtoId)
         {
-            throw new NotImplementedException();
+            try
+        {
+            var produto = await _repositoryProduto.GetProdutoAsyncById(produtoId);
+            if (produto == null) throw new Exception("Evento para delete não encontrado.");
+
+            _repositoryGeneric.Delete<Produto>(produto);
+            return await _repositoryGeneric.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
         }
         public async Task<ProdutoDto[]> GetAllProdutosAsync()
         {

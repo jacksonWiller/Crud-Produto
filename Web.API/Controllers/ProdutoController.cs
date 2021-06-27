@@ -110,8 +110,8 @@ namespace Web.Api.Controllers
         {
             try
             {
-                var evento = await _produtoService.GetProdutoAsyncById(id);
-                if (evento == null) return NoContent();
+                var produto = await _produtoService.GetProdutoAsyncById(id);
+                if (produto == null) return NoContent();
 
                 return await _produtoService.DeleteProduto(id) 
                        ? Ok(new { message = "Deletado" }) 
