@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "/vNnvKihTimX0HLUHSkdiN8vJup3pt/+xjZG+JQ12eetRmY1VNma7uxgPFdRvNMu/MFYE9vJBGysrntIa04SfA==",
+  "dgSpecHash": "7Tp4CP6nPm5tHeMym33FTuffmX9EvkJgscRzeceulMZxfUoplu6aOqEh+yeXcktlJRe+mR4V+svd60P96Y05Iw==",
   "success": true,
   "projectFilePath": "/home/jackson/Área de Trabalho/dotnet code/ProdutoCrud/Infrastructure/Infrastructure.csproj",
   "expectedPackageFiles": [
+    "/home/jackson/.nuget/packages/microsoft.aspnetcore.cryptography.internal/5.0.7/microsoft.aspnetcore.cryptography.internal.5.0.7.nupkg.sha512",
+    "/home/jackson/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/5.0.7/microsoft.aspnetcore.cryptography.keyderivation.5.0.7.nupkg.sha512",
+    "/home/jackson/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/5.0.7/microsoft.aspnetcore.identity.entityframeworkcore.5.0.7.nupkg.sha512",
     "/home/jackson/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/home/jackson/.nuget/packages/microsoft.data.sqlclient/2.0.1/microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "/home/jackson/.nuget/packages/microsoft.data.sqlclient.sni.runtime/2.0.1/microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
@@ -17,6 +20,8 @@
     "/home/jackson/.nuget/packages/microsoft.extensions.configuration.abstractions/5.0.0/microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
     "/home/jackson/.nuget/packages/microsoft.extensions.dependencyinjection/5.0.1/microsoft.extensions.dependencyinjection.5.0.1.nupkg.sha512",
     "/home/jackson/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/5.0.0/microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "/home/jackson/.nuget/packages/microsoft.extensions.identity.core/5.0.7/microsoft.extensions.identity.core.5.0.7.nupkg.sha512",
+    "/home/jackson/.nuget/packages/microsoft.extensions.identity.stores/5.0.7/microsoft.extensions.identity.stores.5.0.7.nupkg.sha512",
     "/home/jackson/.nuget/packages/microsoft.extensions.logging/5.0.0/microsoft.extensions.logging.5.0.0.nupkg.sha512",
     "/home/jackson/.nuget/packages/microsoft.extensions.logging.abstractions/5.0.0/microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "/home/jackson/.nuget/packages/microsoft.extensions.options/5.0.0/microsoft.extensions.options.5.0.0.nupkg.sha512",

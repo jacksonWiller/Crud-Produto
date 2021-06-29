@@ -20,6 +20,13 @@ using ProAgil.Repository;
 using AplicationApp.Interfaces;
 using AplicationApp;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using Domain.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Web.API
 {
@@ -39,8 +46,44 @@ namespace Web.API
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
 
+            IdentityBuilder builder = services.AddIdentityCore<User>(options => 
+            {
+                options.Password.RequireDigit = false; //caracteres especiais 
+                options.Password.RequireNonAlphanumeric = false; //num Alphanumerico
+                options.Password.RequireLowercase = false; 
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 4;
+            });
 
-            services.AddControllers()
+            builder = new IdentityBuilder(builder.UserType, typeof(Role), builder.Services);
+            builder.AddEntityFrameworkStores<DataContext>();
+            builder.AddRoleValidator<RoleValidator<Role>>();
+            builder.AddRoleManager<RoleManager<Role>>();
+            builder.AddSignInManager<SignInManager<User>>();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options => 
+                    {
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            ValidateIssuerSigningKey = true,
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
+                                .GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+                            ValidateIssuer = false,
+                            ValidateAudience = false
+                        };
+                    }
+                );
+
+
+            services.AddControllers(config =>{
+                // using Microsoft.AspNetCore.Mvc.Authorization;
+                // using Microsoft.AspNetCore.Authorization;
+                var policy = new AuthorizationPolicyBuilder()
+                         .RequireAuthenticatedUser()
+                         .Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+            })
                     .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = 
                         Newtonsoft.Json.ReferenceLoopHandling.Ignore
                     );
