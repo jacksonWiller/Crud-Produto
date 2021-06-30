@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -116,10 +115,14 @@ namespace Web.API.Controllers
             claims.Add(new Claim(ClaimTypes.Role, role));
         }
 
-        var key = new SymmetricSecurityKey(Encoding.ASCII
-            .GetBytes(_config.GetSection("AppSettings:Token").Value));
+        // var key = new SymmetricSecurityKey(Encoding.ASCII
+        //     .GetBytes(_config.GetSection("AppSettings:Token").Value));
 
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+        // var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:Secret"]));
+
+        var key = Encoding.ASCII.GetBytes(Settings.Secret);
+
+        var creds = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature);
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
