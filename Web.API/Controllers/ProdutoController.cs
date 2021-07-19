@@ -12,6 +12,7 @@ using Infrastructure.Repository.Interfaces;
 using Infrastructure.Repository.Gererics;
 using AplicationApp.Interfaces;
 using AplicationApp.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Web.Api.Controllers
 {
@@ -27,6 +28,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Get()
         {
             try
@@ -42,6 +44,7 @@ namespace Web.Api.Controllers
             }
         }
         [HttpGet("{nome}/nome")]
+        [AllowAnonymous]
         public async Task<IActionResult> Get(string nome)
         {
             try
@@ -57,6 +60,7 @@ namespace Web.Api.Controllers
             }
         }
         [HttpGet("{ProdutosId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> Get(int ProdutosId)
         {
             try
@@ -73,6 +77,7 @@ namespace Web.Api.Controllers
         }
          
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Post(ProdutoDto model)
         {
             try
@@ -89,6 +94,7 @@ namespace Web.Api.Controllers
             }
         }
         [HttpPut("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> Put(int id, ProdutoDto model)
         {
             try
@@ -106,6 +112,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpDelete("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> Delete(int id)
         {
             try

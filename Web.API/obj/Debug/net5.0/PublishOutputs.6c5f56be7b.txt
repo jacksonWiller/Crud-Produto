@@ -1,11 +1,16 @@
 /home/jackson/CrudProduto/Web.API
 /home/jackson/CrudProduto/appsettings.Development.json
 /home/jackson/CrudProduto/appsettings.json
+/home/jackson/CrudProduto/mono_crash.21acb2be5c.0.json
 /home/jackson/CrudProduto/Web.API.dll
 /home/jackson/CrudProduto/Web.API.runtimeconfig.json
 /home/jackson/CrudProduto/Web.API.pdb
 /home/jackson/CrudProduto/AutoMapper.dll
 /home/jackson/CrudProduto/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/home/jackson/CrudProduto/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/jackson/CrudProduto/Microsoft.AspNetCore.Cryptography.Internal.dll
+/home/jackson/CrudProduto/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/home/jackson/CrudProduto/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /home/jackson/CrudProduto/Microsoft.AspNetCore.JsonPatch.dll
 /home/jackson/CrudProduto/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /home/jackson/CrudProduto/Microsoft.Data.SqlClient.dll
@@ -18,6 +23,8 @@
 /home/jackson/CrudProduto/Microsoft.EntityFrameworkCore.SqlServer.dll
 /home/jackson/CrudProduto/Microsoft.Extensions.DependencyInjection.dll
 /home/jackson/CrudProduto/Microsoft.Extensions.DependencyModel.dll
+/home/jackson/CrudProduto/Microsoft.Extensions.Identity.Core.dll
+/home/jackson/CrudProduto/Microsoft.Extensions.Identity.Stores.dll
 /home/jackson/CrudProduto/Microsoft.Identity.Client.dll
 /home/jackson/CrudProduto/Microsoft.IdentityModel.JsonWebTokens.dll
 /home/jackson/CrudProduto/Microsoft.IdentityModel.Logging.dll
